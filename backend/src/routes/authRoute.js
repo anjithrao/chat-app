@@ -14,7 +14,7 @@ const auth = express.Router();
 auth.post("/signup", signup);
 auth.post("/login", login);
 auth.post("/logout", logout);
-auth.put("/update-profile", protectedRoute, updateProfile);
+auth.put("/updateProfile", protectedRoute, updateProfile);
 auth.get("/check", protectedRoute, checkAuth);
 auth.get("/get-users", getUsers);
 auth.delete("/delete-e/:email", deleteUser);

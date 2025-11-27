@@ -14,8 +14,14 @@ export const signup = async (req, res) => {
         .status(400)
         .json({ message: "password must be greater than 6" });
     }
-    const user = await User.findOne({ email: newUserd.email });
-    if (user) return res.status(400).json({ message: "email already exists" });
+    const user = await User.findOne(
+      { email: newUserd.email });
+
+    const userN = await User.findOne({
+      fullName: newUserd.fullName
+    })
+    if (userN) return res.status(400).json({ message: "username is taken!please try another one" });
+    if (user) return res.status(400).json({ message: "email is taken!please try another one" });
     //hash
     const hasedpass = await bcrypt.hash(newUserd.password, 10);
     newUserd.password = hasedpass;
@@ -63,7 +69,7 @@ export const logout = (req, res) => {
     res.status(200).json({ message: "Logged Out Succesfully" });
   } catch (error) {
     console.log("Error in logout controller", error.message);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error!" });
   }
 };
 export const updateProfile = async (req, res) => {
@@ -114,5 +120,5 @@ export const deleteUser = async (req, res) => {
     let email = req.params.email;
     let dbres = await User.findOneAndDelete({ email: email });
     res.status(200).json({ message: "deleted this:", payload: dbres });
-  } catch (error) {}
+  } catch (error) { }
 };
