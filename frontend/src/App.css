@@ -1,8 +1,16 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@theme {
+
+/* @theme {
   --bg-hero: url("https://imgs.search.brave.com/xrOGZI5wnfpemCI12MBoxuz8zfi1zDSkQQtCsCjVuSI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMTEw/MjA0OTIuanBn");
   --primary-color: #3b82f6;
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
+} */
+@plugin "daisyui" {
+  themes: light, dark, cupcake, bumblebee, emerald, corporate,
+    synthwave, retro, cyberpunk, valentine, halloween,
+    garden, forest, aqua, lofi, pastel, fantasy, wireframe,
+    black, luxury, dracula, cmyk, autumn, business, acid,
+    lemonade, night, coffee, winter, dim, nord, sunset;
 }

@@ -46,20 +46,20 @@ function Signup() {
           bg-cover bg-left"
         />
         {/* Blurred Background Card */}
-        <div className="relative w-full  max-w-md p-10 rounded-box overflow-hidden border border-white/20">
+        <div className="relative w-full  max-w-md p-10 rounded-box overflow-hidden border border-content/20">
           {/* Background (blurred) */}
           <div
             className="absolute inset-0 
-                  z-5 bg-gray-500/90 blur-[2.5px] opacity-100"
+                  z-5 bg-base-100 blur-[2.5px] opacity-100"
           />
           {/* Foreground Content */}
           <div className="relative z-10 space-y-8">
 
             {/* Logo */}
             <div className="text-center mb-8">
-              <div className="flex flex-col items-center gap-2 group bg-gray-200/20 hover:bg-yellow-600/20 p-2 rounded-2xl text-blue-950 ">
-                <div className="size-12 rounded-xl bg-green-200/30 flex justify-center items-center group-hover:bg-primary/20 transition-colors">
-                  <MessagesSquare className="size-6 text-green-300" />
+              <div className="flex flex-col items-center gap-2 group hover:bg-yellow-600/20 p-2 rounded-2xl  text-base-content">
+                <div className="size-12 rounded-xl  bg-accent/20 flex justify-center items-center group-hover:bg-primary/20 transition-colors">
+                  <MessagesSquare className="size-6 text-accent" />
                 </div>
                 <h1 className="text-2xl font-bold mt-2">Create Account</h1>
                 <p className="font-bold">Get started with free Account</p>
@@ -143,9 +143,9 @@ function Signup() {
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
-                      <EyeOff className="size-5 text-base-content/60" />
-                    ) : (
                       <Eye className="size-5 text-base-content/60" />
+                    ) : (
+                      <EyeOff className="size-5 text-base-content/60" />
                     )}
                   </button>
                 </div>
@@ -166,9 +166,9 @@ function Signup() {
 
             {/* Footer */}
             <div className="text-center">
-              <div className="text-base-content/60" />
+              <div className="text-primary-content/60" />
               Already have an account ?{" "}
-              <Link to="/login" className="link link-white bg-primary p-1 no-underline rounded ">
+              <Link to="/login" className="link text-primary-content link-white bg-primary p-3 no-underline btn ">
                 Login
               </Link>
             </div>
