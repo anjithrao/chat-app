@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 import "./App.css";
 import NavBar from "./components/NavBar.jsx";
-import HomePage from "./components/HomePage.jsx";
-import LoginPage from "./components/LoginPage.jsx";
-import Signup from "./components/Signup.jsx";
-import ProfilePage from "./components/ProfilePage.jsx";
-import Settings from "./components/Settings.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import Signup from "./pages/Signup.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import Settings from "./pages/Settings.jsx";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore.js";

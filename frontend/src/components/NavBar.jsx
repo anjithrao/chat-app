@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <>
       <header
-        className="sticky bg-base-300/80   border-b border-base-300  w-full top-0 z-40 backdrop-blur-lg "
+        className="fixed bg-base-300/80   border-b border-base-300  w-full top-0 z-40 backdrop-blur-lg "
       >
         <div className="container mx-auto px-4 h-16">
           <div className="flex items-center  justify-between h-full">

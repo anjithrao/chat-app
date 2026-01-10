@@ -132,7 +132,7 @@ import { Mail, Lock, Eye, EyeOff, Loader2, MessagesSquare } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useAuthStore } from "../../store/useAuthStore";
-import AuthImagePattern from "./AuthImagePattern";
+import AuthImagePattern from "../components/AuthImagePattern";
 
 export default function LoginPage() {
   // const navigate = useNavigate();
