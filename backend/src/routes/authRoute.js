@@ -17,5 +17,5 @@ auth.post("/logout", logout);
 auth.put("/updateProfile", protectedRoute, updateProfile);
 auth.get("/check", protectedRoute, checkAuth);
 auth.get("/get-users", getUsers);
-auth.delete("/delete-e/:email", deleteUser);
+// auth.delete("/delete-e/:email", deleteUser);
 export default auth;
