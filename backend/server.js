@@ -8,17 +8,18 @@ import { connectDB } from "./src/lib/db.js";
 import msg from "./src/routes/messageRoutes.js";
 import { app,server } from "./src/lib/socket.js";
 
-app
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+      origin: true,
     credentials: true,
   })
 );
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use(cookieParser());
 dotenv.config();
+app.use(cookieParser());
+
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 app.use("/api/auth", authRoutes);
@@ -26,7 +27,7 @@ app.use("/api/message", msg);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("/*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
