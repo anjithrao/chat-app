@@ -62,16 +62,24 @@ export const login = async (req, res) => {
     console.log("Error in login controller", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-};
-export const logout = (req, res) => {
+}; export const logout = (req, res) => {
   try {
-    res.cookie("jwt", "", { maxAge: 0 });
-    res.status(200).json({ message: "Logged Out Succesfully" });
+    const isProd = process.env.NODE_ENV === "production";
+
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      sameSite: isProd ? "none" : "lax",
+      secure: isProd,
+      path: "/",
+    });
+
+    res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
     console.log("Error in logout controller", error.message);
     res.status(500).json({ message: "Internal Server Error!" });
   }
 };
+
 export const updateProfile = async (req, res) => {
   try {
     const { profilePic } = req.body;

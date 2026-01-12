@@ -22,6 +22,7 @@ app.use(cookieParser());
 
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
+
 app.use("/api/auth", authRoutes);
 app.use("/api/message", msg);
 if (process.env.NODE_ENV === "production") {
