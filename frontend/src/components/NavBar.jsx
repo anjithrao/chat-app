@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuthStore } from "../../store/useAuthStore";
 
 const NavBar = () => {
-  const { authUser, Logout } = useAuthStore();
+  const { authUser, logout } = useAuthStore();
   return (
     <>
       <header
@@ -38,7 +38,7 @@ const NavBar = () => {
                     <User className="size-5" />
                     <span className="hidden sm:inline">Profile</span>
                   </Link>
-                  <button className="flex gap-2 items-center btn hover:border-base-content/80 " onClick={Logout}>
+                  <button className="flex gap-2 items-center btn hover:border-base-content/80 " onClick={logout}>
                     <LogOut className="size-5 text-error" />
                     <span className="hidden sm:inline">Logout</span>
                   </button>
