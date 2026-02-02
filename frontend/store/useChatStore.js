@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useAuthStore } from "./useAuthStore";
 
 export const useChatStore = create((set,get) => ({
+    isSending: false,
     messages: [],
     users: [],
     selectedUser: null,
@@ -37,6 +38,8 @@ export const useChatStore = create((set,get) => ({
         }
     },
     sendMessages:async(messageData)=>{
+        if (get().isSending) return;
+        set({ isSending: true });
         let {messages,selectedUser} =  get();
         try{
             let res = await axiosInstance.post(`/message/send/${selectedUser._id}`,messageData);
@@ -44,7 +47,9 @@ export const useChatStore = create((set,get) => ({
         }catch(error){
             toast.error(error.response.data.message)
         }
-
+        finally {
+      set({ isSending: false });
+    }
     },
     subscribeToMessages: () => {
         const { selectedUser } = get();

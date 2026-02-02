@@ -7,7 +7,7 @@ const MessageInput = () => {
   const [text, setText] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef(null);
-  const { sendMessages } = useChatStore();
+  const { sendMessages,isSending } = useChatStore();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -98,9 +98,11 @@ const MessageInput = () => {
         <button
           type="submit"
           className="btn btn-sm btn-circle"
-          disabled={!text.trim() && !imagePreview}
+          disabled={isSending || (!text.trim() && !imagePreview)}
         >
           <Send size={22} />
+       {isSending && <span className="text-xs text-zinc-400">Sending…</span>}
+
         </button>
       </form>
     </div>
